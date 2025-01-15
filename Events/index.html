@@ -71,19 +71,19 @@
         // Once Event
 
             // // Create an object with Backbone.Events
-            // var object = {};
-            // _.extend(object, Backbone.Events);
+            var object = {};
+            _.extend(object, Backbone.Events);
 
-            // // Attach an event handler for the 'expand' event that should trigger only once
-            // object.once('expand', function() {
-            //     alert('expanded once');
-            // });
+            // Attach an event handler for the 'expand' event that should trigger only once
+            object.once('expand', function() {
+                alert('expanded once');
+            });
 
-            // // Trigger the 'expand' event (this will show an alert with "expanded once")
-            // object.trigger('expand');
+            // Trigger the 'expand' event (this will show an alert with "expanded once")
+            object.trigger('expand');
 
-            // // Trigger the 'expand' event again (this time nothing will happen)
-            // object.trigger('expand');  // No alert, because the listener was triggered only once
+            // Trigger the 'expand' event again (this time nothing will happen)
+            object.trigger('expand');  // No alert, because the listener was triggered only once
 
         // StopListening event
 
