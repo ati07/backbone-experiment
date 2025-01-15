@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello Collection</h1>
+    <!-- ========= -->
+    <!-- Libraries -->
+    <!-- ========= -->
+    <!-- <script src="https://code.jquery.com/jquery-2.1.3.min.js" type="text/javascript"></script> -->
+    <script src="jquery.js" type="text/javascript"></script>
+    <script src="underscore.js" type="text/javascript"></script>
+
+    <script src="./backbone.js" type="text/javascript"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.0/backbone.localStorage-min.js" type="text/javascript"></script>  -->
+    <script>
+       $(document).ready(function () {
+        // Set Model in Collection
+
+            // let Model = Backbone.Model.extend({})
+
+            // let myModel = new Model()
+
+            // let Collection = Backbone.Collection.extend({
+            //     model: myModel // set your model
+            // })
+
+
+        // preinitialize method
+        
+            // var MyCollection = Backbone.Collection.extend({
+            //     preinitialize: function (models, options) {
+            //         console.log('Preinitializing the collection...');
+            //         this.customProperty = options.customProperty || 'default value';
+
+            //         this.on("add", function () {
+            //             console.log("Add model event got fired!");
+            //         });
+            //     },
+
+            //     initialize: function (models, options) {
+            //         console.log('Initializing the collection...');
+            //         console.log('Custom Property:', this.customProperty);
+            //     }
+            // });
+
+            // // Usage
+            // var collection = new MyCollection([], { customProperty: 'My Custom Value' });
+
+        // Add Method
+
+            // var MyModel = Backbone.Model.extend();
+            // var MyCollection = Backbone.Collection.extend({
+            //     model: MyModel,
+            //     preinitialize: function (models, options) {
+
+            //     this.on("add", function () {
+            //         console.log("Add model event got fired!ddddddddddddddddddd");
+            //     });
+            //     },
+            // });
+
+            // var collection = new MyCollection();
+            // collection.on('add',(data)=>{
+            //     console.log(',,,,,',data)
+            // })
+            // // collection.add({ id: 1, name: 'John' });
+            // collection.add([{ id: 1, name: 'John' },{ id: 2, name: 'bhai' }]);
+
+
+            // console.log(collection.toJSON());
+        
+        // Remove Method
+
+            // var MyModel = Backbone.Model.extend();
+            // var MyCollection = Backbone.Collection.extend({
+            //     model: MyModel
+            // });
+
+            // var collection = new MyCollection([
+            //     { id: 1, name: 'John' },
+            //     { id: 2, name: 'Jane' },
+            //     { id: 3, name: 'Doe' }
+            // ]);
+
+            // // Get a model reference and remove it
+            // var modelToRemove = collection.get(1);
+            // collection.remove(modelToRemove);
+
+            // console.log(collection.toJSON());
+
+        // Reset Method 
+          
+            // var MyModel = Backbone.Model.extend();
+            // var MyCollection = Backbone.Collection.extend({
+            //     model: MyModel
+            // });
+
+            // var collection = new MyCollection([
+            //     { id: 1, name: 'John' },
+            //     { id: 2, name: 'Jane' }
+            // ]);
+
+            // console.log('Before reset:', collection.toJSON());
+            // // Output: [{ id: 1, name: 'John' }, { id: 2, name: 'Jane' }]
+
+            // // Replace the collection with new models
+            // collection.reset([
+            //     { id: 3, name: 'Alice' },
+            //     { id: 4, name: 'Bob' }
+            // ]);
+
+            // console.log('After reset:', collection.toJSON());
+            // Output: [{ id: 3, name: 'Alice' }, { id: 4, name: 'Bob' }]
+
+
+        // Set Method
+
+
+            // var MyModel = Backbone.Model.extend();
+            // var MyCollection = Backbone.Collection.extend({
+            //     model: MyModel
+            // });
+
+            // var collection = new MyCollection([
+            //     { id: 1, name: 'Alice' },
+            //     { id: 2, name: 'Bob' }
+            // ]);
+
+            // console.log('Before set:', collection.toJSON());
+            // // Output: [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }]
+
+            // collection.set([
+            //     { id: 2, name: 'Bobby' }, // Updates existing model with id: 2
+            //     { id: 3, name: 'Charlie' } // Adds a new model
+            // ]);
+
+            // console.log('After set:', collection.toJSON());
+            // // Output: [{ id: 2, name: 'Bobby' }, { id: 3, name: 'Charlie' }]
+
+
+            // // If the remove option is not set to false, models that are not in the new array are removed.
+
+            // collection.set([
+            //     { id: 1, name: 'Alice' } // Model with id: 3 is removed
+            // ]);
+
+            // console.log('After removing models:', collection.toJSON());
+            // // Output: [{ id: 1, name: 'Alice' }]
+
+            // // You can control the behavior with add, remove, and merge options.
+
+
+            // collection.set([
+            //     { id: 2, name: 'Bob' },
+            //     { id: 4, name: 'Daisy' }
+            // ], { add: true, remove: false, merge: true });
+
+            // console.log('Prevent add/remove:', collection.toJSON());
+
+
+        // get method
+
+            // var MyModel = Backbone.Model.extend();
+            // var MyCollection = Backbone.Collection.extend({
+            //     model: MyModel
+            // });
+
+            // var collection = new MyCollection([
+            //     { id: 1, name: 'Alice' },
+            //     { id: 2, name: 'Bob' }
+            // ]);
+
+            // var model = collection.get(1);
+            // console.log(model.toJSON());
+
+
+        // at method
+
+
+            // var MyModel = Backbone.Model.extend();
+            // var MyCollection = Backbone.Collection.extend({
+            //     model: MyModel
+            // });
+
+            // var collection = new MyCollection([
+            //     { id: 1, name: 'Alice' },
+            //     { id: 2, name: 'Bob' },
+            //     { id: 3, name: 'Charlie' }
+            // ]);
+
+            // var model = collection.at(1); // Retrieve the model at index 1
+            // console.log(model.toJSON());
+            // Output: { id: 2, name: 'Bob' }
+
+
+        // push method
+
+
+            // var MyModel = Backbone.Model.extend({
+            //     defaults: {
+            //         name: '',
+            //         age: 0
+            //     }
+            // });
+
+            // var MyCollection = Backbone.Collection.extend({
+            //     model: MyModel
+            // });
+
+            // var collection = new MyCollection();
+
+            // var newModel = new MyModel({ name: 'Alice', age: 30 });
+
+            // // Add model to collection
+            // collection.push(newModel);
+
+            // console.log(collection.toJSON());
+            // // Output: [{ name: 'Alice', age: 30 }]
+
+        // Comparator Method
+            // var MyModel = Backbone.Model.extend({
+            //             defaults: {
+            //                 name: '',
+            //                 age: 0
+            //             }
+            //             });
+
+            // var MyCollection = Backbone.Collection.extend({
+            //     model: MyModel,
+            //     comparator: function(model) {
+            //         // Sort by 'age' in ascending order
+            //         return model.get('age');
+            //     }
+            //     });
+
+            // // Create a new collection
+            // var collection = new MyCollection([
+            //     { name: 'Alice', age: 30 },
+            //     { name: 'Bob', age: 25 },
+            //     { name: 'Charlie', age: 35 }
+            //     ]);
+
+            // console.log(collection.toJSON());
+            // Output (sorted by age): 
+            // [ { name: 'Bob', age: 25 }, { name: 'Alice', age: 30 }, { name: 'Charlie', age: 35 }]
+
+
+        // Sort method
+            // var MyModel = Backbone.Model.extend({
+            //     defaults: {
+            //         name: '',
+            //         age: 0
+            //     }
+            // });
+
+            // var MyCollection = Backbone.Collection.extend({
+            //     model: MyModel,
+            //     comparator: 'age' // Default comparator to sort by 'age'
+            // });
+            // var collection = new MyCollection([
+            //     { name: 'Alice', age: 30 },
+            //     { name: 'Bob', age: 25 },
+            //     { name: 'Charlie', age: 35 }
+            // ]);
+
+            // // Sort by name in reverse order
+            // collection.comparator = function(model) {
+            //     return model.get('name').toLowerCase();
+            // };
+
+
+            // console.log(collection.toJSON());
+            // // Sort in reverse alphabetical order
+            // collection.sort();
+
+            // console.log(collection.toJSON());
+            // Output: [ { name: 'Charlie', age: 35 }, { name: 'Bob', age: 25 }, { name: 'Alice', age: 30 }]
+
+        // pluk Method
+
+            // var MyModel = Backbone.Model.extend({
+            //             defaults: {
+            //                 name: '',
+            //                 age: 0
+            //             }
+            //         });
+
+            // var MyCollection = Backbone.Collection.extend({
+            //     model: MyModel
+            // });
+
+            // var collection = new MyCollection([
+            //     { name: 'Alice', age: 30 },
+            //     { name: 'Bob', age: 25 },
+            //     { name: 'Charlie', age: 35 }
+            // ]);
+            // // Extract the 'name' attribute from each model
+            // var names = collection.pluck('name');
+            // console.log(names);
+            // // Output: ['Alice', 'Bob', 'Charlie']
+
+            // // Extract the 'age' attribute from each model
+            // var ages = collection.pluck('age');
+            // console.log(ages);
+            // Output: [30, 25, 35]
+
+        // Where Method
+
+            // Define a Backbone Model
+            // var UserModel = Backbone.Model.extend({
+            //     defaults: {
+            //         name: '',
+            //         age: 0,
+            //         city: ''
+            //     }
+            // });
+
+            // // Define a Backbone Collection
+            // var UsersCollection = Backbone.Collection.extend({
+            //     model: UserModel
+            // });
+
+            // // Create an instance of the collection and add some models
+            // var users = new UsersCollection([
+            //     { name: 'Alice', age: 25, city: 'New York' },
+            //     { name: 'Bob', age: 30, city: 'Chicago' },
+            //     { name: 'Charlie', age: 25, city: 'New York' },
+            //     { name: 'David', age: 35, city: 'San Francisco' }
+            // ]);
+
+            // // Use the where method to filter users by age and city
+            // var filteredUsers = users.where({ age: 25, city: 'New York' });
+
+            // // Log the results
+            // console.log('Filtered Users:', filteredUsers);
+            // console.log('Filtered Users:', filteredUsers.map(function(user) {
+            //     return user.toJSON();
+            // }));
+
+        // FindWhere Method
+
+
+            // Define a Backbone Model
+            // var UserModel = Backbone.Model.extend({
+            //     defaults: {
+            //         name: '',
+            //         age: 0,
+            //         city: ''
+            //     }
+            // });
+
+            // // Define a Backbone Collection
+            // var UsersCollection = Backbone.Collection.extend({
+            //     model: UserModel
+            // });
+
+            // // Create an instance of the collection and add some models
+            // var users = new UsersCollection([
+            //     { name: 'Alice', age: 25, city: 'New York' },
+            //     { name: 'Bob', age: 30, city: 'Chicago' },
+            //     { name: 'Charlie', age: 25, city: 'New York' },
+            //     { name: 'David', age: 35, city: 'San Francisco' }
+            // ]);
+
+            // // Use the findWhere method to find the first user with age 25
+            // var firstMatch = users.findWhere({ age: 25 });
+
+            // // Log the result
+            // console.log('First Match:', firstMatch ? firstMatch.toJSON() : 'No match found');
+
+        // url:
+
+            // Static URL
+            // var UsersCollection = Backbone.Collection.extend({
+            //     url: 'https://jsonplaceholder.typicode.com/users'
+            // });
+
+            // // Create an instance of the collection
+            // var users = new UsersCollection();
+
+            // // Fetch data from the server
+            // users.fetch({
+            //     success: function(collection, response, options) {
+            //         console.log('Data fetched successfully:', collection.toJSON());
+            //     },
+            //     error: function(collection, response, options) {
+            //         console.error('Failed to fetch data:', response.responseText);
+            //     }
+            // });
+
+            // Dynamic Url
+
+
+                // var UsersCollection = Backbone.Collection.extend({
+                //     initialize: function(models, options) {
+                //         this.groupId = options.groupId;
+                //     },
+                //     url: function() {
+                //         return 'https://jsonplaceholder.typicode.com/groups/' + this.groupId + '/users';
+                //     }
+                // });
+
+                // // Create an instance of the collection with a dynamic group ID
+                // var groupUsers = new UsersCollection([], { groupId: 42 });
+
+                // // Fetch data for the specified group
+                // groupUsers.fetch({
+                //     success: function(collection, response, options) {
+                //         console.log('Group data fetched successfully:', collection.toJSON());
+                //     },
+                //     error: function(collection, response, options) {
+                //         console.error('Failed to fetch group data:', response.responseText);
+                //     }
+                // });
+
+
+            // CRUD operation
+
+                // Create
+                    // var UsersCollection = Backbone.Collection.extend({
+                    //     url: 'https://jsonplaceholder.typicode.com/users'
+                    // });
+
+                    // var users = new UsersCollection();
+
+                    // // Create a new user and save it to the server
+                    // users.create({
+                    //     name: 'John Doe',
+                    //     email: 'johndoe@example.com'
+                    // }, {
+                    //     success: function(model, response, options) {
+                    //         console.log('User created and added to collection:', model.toJSON());
+                    //     },
+                    //     error: function(model, response, options) {
+                    //         console.error('Failed to create user:', response.responseText);
+                    //     }
+                    // });
+
+                // Read
+
+                    // var UsersCollection = Backbone.Collection.extend({
+                    //     url: 'https://jsonplaceholder.typicode.com/users'
+                    // });
+
+                    // // Create an instance of the collection
+                    // var users = new UsersCollection();
+
+                    // // Fetch data from the server
+                    // users.fetch({
+                    //     success: function(collection, response, options) {
+                    //         console.log('Data fetched successfully:', collection.toJSON());
+                    //     },
+                    //     error: function(collection, response, options) {
+                    //         console.error('Failed to fetch data:', response.responseText);
+                    //     }
+                    // });
+
+                // update
+
+                    // Fetch all users and update one
+                        // users.fetch({
+                        //     success: function(collection) {
+                        //         // Find a specific user (e.g., by ID)
+                        //         var user = collection.get(1); // Assuming ID 1 exists
+
+                        //         if (user) {
+                        //             user.set('name', 'Jane Doe');
+                        //             user.save(null, {
+                        //                 success: function(model, response, options) {
+                        //                     console.log('User updated successfully:', model.toJSON());
+                        //                 },
+                        //                 error: function(model, response, options) {
+                        //                     console.error('Failed to update user:', response.responseText);
+                        //                 }
+                        //             });
+                        //         } else {
+                        //             console.log('User not found in collection');
+                        //         }
+                        //     }
+                        // });
+
+                //  Delete
+
+                    // users.fetch({
+                    //     success: function(collection) {
+                    //         // Find a specific user (e.g., by ID)
+                    //         var user = collection.get(1); // Assuming ID 1 exists
+
+                    //         if (user) {
+                    //             user.destroy({
+                    //                 success: function(model, response, options) {
+                    //                     console.log('User deleted successfully:', response);
+                    //                 },
+                    //                 error: function(model, response, options) {
+                    //                     console.error('Failed to delete user:', response.responseText);
+                    //                 }
+                    //             });
+                    //         } else {
+                    //             console.log('User not found in collection');
+                    //         }
+                    //     }
+                    // });
+
+            // Mixing Method
+
+                // use in model
+
+                    // Define a Backbone model
+                    // var MyModel = Backbone.Model.extend({
+                    //     defaults: {
+                    //         name: 'Default Name',
+                    //         age: 0
+                    //     }
+                    // });
+
+                    // // Add the mixin to the model prototype
+                    // _.extend(MyModel.prototype, MyMixin);
+
+                    // // Create an instance of the model
+                    // var modelInstance = new MyModel({ name: 'John Doe', age: 30 });
+
+                    // // Use mixin methods
+                    // modelInstance.sayHello(); // Logs: "Hello from mixin!"
+                    // modelInstance.logAttributes(); // Logs: Attributes: { name: 'John Doe', age: 30 }
+
+                // Use in collection
+
+                    // Define a Backbone collection
+                    // var MyCollection = Backbone.Collection.extend({
+                    //     model: MyModel
+                    // });
+
+                    // // Add the mixin to the collection prototype
+                    // _.extend(MyCollection.prototype, MyMixin);
+
+                    // // Create an instance of the collection
+                    // var collectionInstance = new MyCollection([
+                    //     { name: 'Alice', age: 25 },
+                    //     { name: 'Bob', age: 35 }
+                    // ]);
+
+                    // // Use mixin methods
+                    // collectionInstance.sayHello(); // Logs: "Hello from mixin!"
+                    // console.log('Collection size:', collectionInstance.length); // Logs: Collection size: 2
+            
+            // CollectionIterator
+
+            // Create a collection with models
+                // var MyCollection = new Backbone.Collection([
+                //                     { id: 1, name: 'Alice' },
+                //                     { id: 2, name: 'Bob' },
+                //                     { id: 3, name: 'Charlie' }
+                //                 ]);
+
+                // // Use values() to iterate over models
+                // var iterator =  new CollectionIterator(MyCollection, ITERATOR_VALUES);
+                // console.log(iterator.next()); // { value: { id: 1, name: 'Alice' }, done: false }
+                // console.log(iterator.next()); // { value: { id: 2, name: 'Bob' }, done: false }
+                // console.log(iterator.next()); // { value: { id: 3, name: 'Charlie' }, done: false }
+                // console.log(iterator.next()); // { value: undefined, done: true }
+
+
+
+
+
+
+
+           
+
+
+
+            })
+    </script>
+
+</body>
+
+</html>
