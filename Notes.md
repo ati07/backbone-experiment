@@ -83,39 +83,107 @@ Finally the concept is that how to set the backbone js, underscore, jQuery in ro
 
 
 
-
-
 # Model #
- - The basic data structure which is store in databse
+ - Model is the basic data structure of database. Model also has some method to get control over the data manuplition.
 
+
+### Id:
+ - Id is unique identifire of model when model save to server. It's not created in locally.
+
+### cid:
+ - cid is unique identifire it's created when model is created on client side (locally) not on server. It is also a temporary id.
+
+
+### cidPrefix:
+ - cidPrefix helps to create cid with unique key to prevent the conflict between cid and id values.
+
+
+### idAttribute:
+ - idAttribute a property of backbone where we can define custom id to tell backbone to identify the model on basis of idAttribute if it's defined in Model. Otherwise backbone will identify the model on basis of id.   
+
+### attributes:
+ - Attibutes represents the state of model in form of JSON object.
+
+
+### changed:
+ - It is a property which has all changed attributes since last changes has done.
+
+
+### defaults:
+ - By defaults hash( plain javscript object) we can set defaults data in Model. While creating instance of the Model defaults set attributs  
 
 ### preinitialize:
- - it will call method when you will create the model or collection is created
+ - This method will call when you will create the model is created just before the initialization. We can add some logic in this methid before the inserting the data in Model.
 
 ### initialize:
- -  we can pass the value in model when model is initialize
+ -  Initialize method is basically inserting data in Model if Model get created with some data.
 
 
 ### get Method:
- - get value of required key
+ - By get method we can get the specific key's value from Model by passing the key in get argument.
 
 ### set Method:
- - set key value in Model using this method
+ - set key-value in Model using this method. When we set any data in Model a change event will trigger.
 
 ### escape Method:
- - return HTML-escape value without effecting HTML in way that HTML show in correct way
+ - Escape Method return the HTML-escape (convert to safe HTML entity equivalent) value without effecting HTML in way that HTML show in correct way.
 
 ### has Method:
- - This method check that provided key is exist in model or not.
+ - This method check that provided key is exist in model or not. It's return true or false.
 
 ### unset Method:
- - it will remove key-value from model
+ - If we want to remove single value or multiple value from Model then we can use to remove those data form Model. And after removing the data it fire the change event.
 
 ### clear Method:
- - It will clear all alltribute from model
+ - If we want to make empty the model then we can use clear method to delet all data from Model After removing the data it fire change event. If we don't want to trigger that event then we can pass silent in option.
 
 ### toJSON:
- - return a shallow copy of attributes from model
+ - return a shallow copy of attributes from model in JSON object.
+
+
+### Sync:
+ - Sync method is make communication between model and server and keep syncing with data changes with model and server database. It uses RESTful Api HTTP request to communicate.
+
+### fetch:
+ - Whenever we want to make a request to get data from sever we use fetch method. It uses sync method internally to make a reuqest.
+
+### save:
+ - Save method used to save the data in server database. Save method check if model is new then it hits create method automatically. and if find existing model then hits update method. If we want to change update method to patch by then we need to set patch true in argument.
+
+### destroy:
+ - Destroy method delete the model from sever using DELETE HTTP request by sync.
+
+### Validate:
+ - By default save method validate the model but if we want to make own validate method we can override with our custom logic.
+
+
+### validationError:
+ - Whenever validation is failed then return validation error.
+
+### url:
+ - This method return a relative url from urlRoot or url of collection and model Id.
+
+
+### urlRoot:
+ -  urlRoot is used if there is not collection of models.
+
+
+### isNew:
+ - This method check id in model if there is id present then it's not new for server. If there is not id found in model then it's new. 
+
+
+### hasChanged:
+ - This method check the attributes in changed then it's return true otherwise false.
+
+### changedAttributes:
+ - It returns all changed hash attributes if attributes not changed then it return false.
+
+
+### previous:
+ - It returns previous value of attributes which has last changed in model.
+
+### previousAttributes:
+ - It return a copy of last changed previous attributes from model. 
 
 ### isValid:
  - this method will invoke whenever model attributes set or save and validate the model data
@@ -123,27 +191,35 @@ Finally the concept is that how to set the backbone js, underscore, jQuery in ro
 
 
 
-
-
-
-
 # Collection #
- -  Collection is set of models data.
+ -  Collection is ordered set of models data. We can bind the change event to notified when model has updated or changed. Any event is trigger in model it will also trigger in collection.
 
+
+### model:
+ - This is a property of collection where we can set a model. By default it has Model of Backbone.
+
+
+### modelId:
+ - modelId method is tell collection to identify the model according to the modelID. This method help collection to read the model if models have same Id.
+
+### Models:
+ - It is represent the array of Model.
+
+ 
 
 ### preinitialize:
  - whenever collection is first created preinitialize method will call.
 
 
 ### add Method:
- - add models to collection
+ - add models to collection one by one with add event and after that trigger update event.If collection is added with existingg model then it will be ignored but if set merge true then it will merge.
 
 ### remove Method
- - remove model from collection with there id
+ - This method takes a model aurgument then remove from collection.
 
 
 ### reset:
- - By using this method we can change entire collection with new models, it's different from add and remove method.
+ - By using this method we can change entire collection with new models, it's different from add and remove method. If we didn't pass any argument then it will be remove entire collection
 
 
 ### set Method (add, remove, change, and update):
@@ -152,22 +228,36 @@ Finally the concept is that how to set the backbone js, underscore, jQuery in ro
  - Trigger add, remove, change, and update Events
 
 ### get method:
- - get model detail with model id.
+ - By using get method we can obtain model detail with model id.
 
 ### at method:
- - simplest method to get the model data if your data is sorted.
+ - Simplest method to get the model data if your data is sorted.
 
+
+### push method:
+ - By push method we can append data in collection at the end of collection
+
+### pop method:
+ - Pop method remove and return the last model from collection.
+
+
+### shift:
+ - Shift method always remove and return first model from collection.
+
+### unshift method:
+ - It's add model at the begining in collection.
+
+### slice method:
+ - By the slice method we can always return a shallow copy of models, we can set the indexes begining and last.
 
 ### Comparator Method:
- - if you want to sort the model with some attributes you can use comparator method in collection 
+ - If you want to sort the model with some attributes you can use comparator method in collection 
 
 ### Sort Method:
-
  - If we need to sort manually then we can use sort method
 
 ### pluk Method:
-
- - Pluk method use to retrive the specific attributs from every models
+ - Pluk method use to retrive the specific attribute's value from every models.
 
 ### Where Method:
  - where method is find out those all models which we have pass thier attributes in where method.
@@ -177,14 +267,13 @@ Finally the concept is that how to set the backbone js, underscore, jQuery in ro
 
 
 ### url:
-
  - set url in collection to reference its location on the server
 
 ### fetch Method:
  - Fetch the data from server then use parse method to parse the response data in json
 
 ### create Method:
- - Create method basically create the a model in collection 
+ - Create method basically create the a model in collection as well as on server if server is sync.
 
 ### mixin method:
  - Mixing a way to share the re-usable method through out model or collections using prototype of model and collection
@@ -195,12 +284,12 @@ Finally the concept is that how to set the backbone js, underscore, jQuery in ro
 
 # CollectionIterator #
 
-  - Collection Iterator is a object as we can say it is a custom itrator of Backbone js.
-  - It's itrating over the collections just like for loop in javscript
+  - Collection Iterator is a object as we can say it is a custom iterator of Backbone js.
+  - It's iterating over the collections just like for loop in javscript
 
 
 ### $$iterator:
- - Symbolic representation of iterator, it's ensure that itarator is itarable itself or not.
+ - Symbolic representation of iterator, it's ensure that iterator is iterable itself or not.
 
 
 ### next method:
@@ -243,26 +332,19 @@ Finally the concept is that how to set the backbone js, underscore, jQuery in ro
 
 
 ### delegateEvents:
- - If we need to manualy bind the events we use this method in view But it's autmatically bind the events hash whenever View initilize.
+ - If we need to manualy bind the events then we can use this method in view But it's automatically bind the events hash whenever View initilize.
 
 ### undelegateEvents:
- - It's unbine all event which is bind with View.
-
-
-
-
+ - It's unbind all event which is bind with View.
 
 # Router #
  - Router means a object that maps URL of App.
-
 
 ### routes:
  - urls pattern of App
 
 ### navigate:
  - whenever we want to navigate to new URL
-
-
 
 ### execute:
  - whenever we want to validate or do some logic before moving to next url, we can use this method
@@ -273,6 +355,25 @@ Finally the concept is that how to set the backbone js, underscore, jQuery in ro
 # History #
  - History saves the URL changes as well track the url movment and ensure that url proccessing is going well managed.
 
+### window.location:
+ - window location provide information of the current url.
+
+### window.history:
+ - This provides the information of browser session history
+
+### interval:
+ - interval are used in Backbone to chech the hash changes in URl becuase older browser didn't support onhashchange.
+
+### atRoot:
+ - Method checks the browser current url with application root path. It return true aor false.
+
+
+### matchRoot:
+ - This method is matching Root with path of browser url.
+
+
+### decodeFragment:
+ - 
 
  discussion : 
  - PushState

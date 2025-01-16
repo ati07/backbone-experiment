@@ -51,31 +51,31 @@
             //     }
             // });
 
-            // // Usage
+            // // // Usage
             // var collection = new MyCollection([], { customProperty: 'My Custom Value' });
 
         // Add Method
 
-            // var MyModel = Backbone.Model.extend();
-            // var MyCollection = Backbone.Collection.extend({
-            //     model: MyModel,
-            //     preinitialize: function (models, options) {
+            var MyModel = Backbone.Model.extend();
+            var MyCollection = Backbone.Collection.extend({
+                model: MyModel,
+                preinitialize: function (models, options) {
 
-            //     this.on("add", function () {
-            //         console.log("Add model event got fired!ddddddddddddddddddd");
-            //     });
-            //     },
-            // });
+                this.on("add", function () {
+                    console.log("Add model event got fired!ddddddddddddddddddd");
+                });
+                },
+            });
 
-            // var collection = new MyCollection();
-            // collection.on('add',(data)=>{
-            //     console.log(',,,,,',data)
-            // })
-            // // collection.add({ id: 1, name: 'John' });
-            // collection.add([{ id: 1, name: 'John' },{ id: 2, name: 'bhai' }]);
+            var collection = new MyCollection();
+            collection.on('add',(data)=>{
+                console.log(',,,,,',data)
+            })
+            // collection.add({ id: 1, name: 'John' });
+            collection.add([{ id: 1, name: 'John' },{ id: 2, name: 'bhai' }]);
 
 
-            // console.log(collection.toJSON());
+            console.log(collection.toJSON());
         
         // Remove Method
 
