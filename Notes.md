@@ -279,8 +279,8 @@ Finally the concept is that how to set the backbone js, underscore, jQuery in ro
  - Mixing a way to share the re-usable method through out model or collections using prototype of model and collection
 
 
-
-
+##### TODO
+- map function
 
 # CollectionIterator #
 
