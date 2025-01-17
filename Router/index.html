@@ -35,181 +35,181 @@
         $(document).ready(function () {
 
 
-            // Routs
+            // Routes
 
-            var MyRouter = Backbone.Router.extend({
-                routes: {
-                    '': 'home',                // Default route (empty URL)
-                    'about': 'aboutPage',      // '#about' triggers the 'aboutPage' method
-                    'contact': 'contactPage',  // '#contact' triggers the 'contactPage' method
-                    'user/:id': 'userProfile', // '#user/:id' triggers the 'userProfile' method with a parameter
-                    '*path': 'defaultRoute'    // Wildcard route for unmatched URLs
-                },
+                var MyRouter = Backbone.Router.extend({
+                    routes: {
+                        '': 'home',                // Default route (empty URL)
+                        'about': 'aboutPage',      // '#about' triggers the 'aboutPage' method
+                        'contact': 'contactPage',  // '#contact' triggers the 'contactPage' method
+                        'user/:id': 'userProfile', // '#user/:id' triggers the 'userProfile' method with a parameter
+                        '*path': 'defaultRoute'    // Wildcard route for unmatched URLs
+                    },
 
-                // Callback for the default route (home)
-                home: function () {
-                    console.log('Home page');
-                    // Render home page view, or perform any logic
-                },
+                    // Callback for the default route (home)
+                    home: function () {
+                        console.log('Home page');
+                        // Render home page view, or perform any logic
+                    },
 
-                // Callback for the about page
-                aboutPage: function () {
-                    console.log('About page');
-                    // Render about page view
-                },
+                    // Callback for the about page
+                    aboutPage: function () {
+                        console.log('About page');
+                        // Render about page view
+                    },
 
-                // Callback for the contact page
-                contactPage: function () {
-                    console.log('Contact page');
-                    // Render contact page view
-                },
+                    // Callback for the contact page
+                    contactPage: function () {
+                        console.log('Contact page');
+                        // Render contact page view
+                    },
 
-                // Callback for the user profile page with a parameter
-                userProfile: function (id) {
-                    console.log('User profile for ID:', id);
-                    // Render user profile based on the ID
-                },
+                    // Callback for the user profile page with a parameter
+                    userProfile: function (id) {
+                        console.log('User profile for ID:', id);
+                        // Render user profile based on the ID
+                    },
 
-                // Callback for unmatched routes (wildcard)
-                defaultRoute: function (path) {
-                    console.log('404 Not Found:', path);
-                }
-            });
+                    // Callback for unmatched routes (wildcard)
+                    defaultRoute: function (path) {
+                        console.log('404 Not Found:', path);
+                    }
+                });
 
-            // Initialize the router
-            var router = new MyRouter();
+                // Initialize the router
+                var router = new MyRouter();
 
-            // Start Backbone history to begin routing
-            Backbone.history.start();
-            // Backbone.history.start({
-            //             pushState: true,
-            //             root: "/"
-            //                 });
+                // Start Backbone history to begin routing
+                // Backbone.history.start();
+                Backbone.history.start({
+                            pushState: true,
+                            root: "/"
+                                });
 
 
 
-        // Deal with Multiple View    
+            // Deal with Multiple View    
 
-            // var HomeView = Backbone.View.extend({
-            //     render: function () {
-            //         this.$el.html('<h1>Home Page</h1>');
-            //         return this;
-            //     }
-            // });
+                // var HomeView = Backbone.View.extend({
+                //     render: function () {
+                //         this.$el.html('<h1>Home Page</h1>');
+                //         return this;
+                //     }
+                // });
 
-            // var AboutView = Backbone.View.extend({
-            //     render: function () {
-            //         this.$el.html('<h1>About Page</h1>');
-            //         return this;
-            //     }
-            // });
+                // var AboutView = Backbone.View.extend({
+                //     render: function () {
+                //         this.$el.html('<h1>About Page</h1>');
+                //         return this;
+                //     }
+                // });
 
-            // var MyRouter = Backbone.Router.extend({
-            //     routes: {
-            //         '': 'home',
-            //         'about': 'aboutPage'
-            //     },
+                // var MyRouter = Backbone.Router.extend({
+                //     routes: {
+                //         '': 'home',
+                //         'about': 'aboutPage'
+                //     },
 
-            //     home: function () {
-            //         var homeView = new HomeView();
-            //         $('#content').html(homeView.render().el);
-            //     },
+                //     home: function () {
+                //         var homeView = new HomeView();
+                //         $('#content').html(homeView.render().el);
+                //     },
 
-            //     aboutPage: function () {
-            //         var aboutView = new AboutView();
-            //         $('#content').html(aboutView.render().el);
-            //     }
-            // });
+                //     aboutPage: function () {
+                //         var aboutView = new AboutView();
+                //         $('#content').html(aboutView.render().el);
+                //     }
+                // });
 
-            // var router = new MyRouter();
-            // Backbone.history.start();
+                // var router = new MyRouter();
+                // Backbone.history.start();
 
             // preinitialize
-            // var MyRouter = Backbone.Router.extend({
-            //     routes: {
-            //         'home': 'showHome',
-            //         'about': 'showAbout'
-            //     },
+                // var MyRouter = Backbone.Router.extend({
+                //     routes: {
+                //         'home': 'showHome',
+                //         'about': 'showAbout'
+                //     },
 
-            //     preinitialize: function() {
-            //         console.log('Preinitialize logic here');
-            //         // Perform pre-initialization setup tasks like modifying options or attributes
-            //     },
+                //     preinitialize: function() {
+                //         console.log('Preinitialize logic here');
+                //         // Perform pre-initialization setup tasks like modifying options or attributes
+                //     },
 
-            //     initialize: function() {
-            //         this.preinitialize();  // Manually call the preinitialize logic
-            //         console.log('Router Initialized');
-            //     },
+                //     initialize: function() {
+                //         this.preinitialize();  // Manually call the preinitialize logic
+                //         console.log('Router Initialized');
+                //     },
 
-            //     showHome: function() {
-            //         console.log('Home route triggered');
-            //     },
+                //     showHome: function() {
+                //         console.log('Home route triggered');
+                //     },
 
-            //     showAbout: function() {
-            //         console.log('About route triggered');
-            //     }
-            // });
+                //     showAbout: function() {
+                //         console.log('About route triggered');
+                //     }
+                // });
 
-            // // Initialize the router
-            // var myRouter = new MyRouter();
+                // // Initialize the router
+                // var myRouter = new MyRouter();
 
-            // // Start Backbone's history so that the router can handle routes
-            // Backbone.history.start();
+                // // Start Backbone's history so that the router can handle routes
+                // Backbone.history.start();
 
             // navigate
-            // openPage: function(pageNumber) {
-            // this.document.pages.at(pageNumber).open();
-            // this.navigate("page/" + pageNumber);
-            // }
+                // openPage: function(pageNumber) {
+                            // this.document.pages.at(pageNumber).open();
+                            // this.navigate("page/" + pageNumber);
+                        // }
 
-            // # Or ...
+                // # Or ...
 
-            // app.navigate("help/troubleshooting", {trigger: true});
+                // app.navigate("help/troubleshooting", {trigger: true});
 
-            // # Or ...
+                // # Or ...
 
-            // app.navigate("help/troubleshooting", {trigger: true, replace: true});
+                // app.navigate("help/troubleshooting", {trigger: true, replace: true});
 
 
             // execute
 
-            //  var AppRouter = Backbone.Router.extend({
-            //     routes: {
-            //         'profile/:id': 'showProfile'
-            //     },
+                //  var AppRouter = Backbone.Router.extend({
+                //     routes: {
+                //         'profile/:id': 'showProfile'
+                //     },
 
-            //     // Route handler
-            //     showProfile: function(id) {
-            //         console.log('Showing profile for user:', id);
-            //     },
+                //     // Route handler
+                //     showProfile: function(id) {
+                //         console.log('Showing profile for user:', id);
+                //     },
 
-            //     // Overriding the execute method
-            //     execute: function(callback, args, name) {
-            //         console.log('Executing pre-route logic');
+                //     // Overriding the execute method
+                //     execute: function(callback, args, name) {
+                //         console.log('Executing pre-route logic');
 
-            //         // Example: Check if the user is authenticated
-            //         if (!this.isUserAuthenticated()) {
-            //             console.log('User not authenticated');
-            //             return; // Prevent further routing if not authenticated
-            //         }
+                //         // Example: Check if the user is authenticated
+                //         if (!this.isUserAuthenticated()) {
+                //             console.log('User not authenticated');
+                //             return; // Prevent further routing if not authenticated
+                //         }
 
-            //         // Call the original route handler (callback)
-            //         if (callback) callback.apply(this, args);
-            //     },
+                //         // Call the original route handler (callback)
+                //         if (callback) callback.apply(this, args);
+                //     },
 
-            //     isUserAuthenticated: function() {
-            //         // Example check for user authentication
-            //         return true; // In reality, this would check if the user is logged in
-            //     }
-            // });
+                //     isUserAuthenticated: function() {
+                //         // Example check for user authentication
+                //         return true; // In reality, this would check if the user is logged in
+                //     }
+                // });
 
-            // var appRouter = new AppRouter();
+                // var appRouter = new AppRouter();
 
-            // // Start Backbone's routing
-            // Backbone.history.start();
+                // // Start Backbone's routing
+                // Backbone.history.start();
 
-            // // Navigate to a route to trigger execute and showProfile
-            // appRouter.navigate('profile/123', { trigger: true });
+                // // Navigate to a route to trigger execute and showProfile
+                // appRouter.navigate('profile/123', { trigger: true });
 
 
 

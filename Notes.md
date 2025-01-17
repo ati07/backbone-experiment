@@ -279,9 +279,6 @@ Finally the concept is that how to set the backbone js, underscore, jQuery in ro
  - Mixing a way to share the re-usable method through out model or collections using prototype of model and collection
 
 
-##### TODO
-- map function
-
 # CollectionIterator #
 
   - Collection Iterator is a object as we can say it is a custom iterator of Backbone js.
@@ -302,33 +299,32 @@ Finally the concept is that how to set the backbone js, underscore, jQuery in ro
 
 # View #
  - it is simplity a javascript object which holds the junk of UI.
- - It can be single item, entire list
+ - It can be single item, entire list etc.
 
 
 
 ### extend:
- - It is used to create custom methods, subclasess, property of View
+ - It is used to create custom methods, subclasses, property of View
 
 
 ### el:
- - All view has own DOM element. it's pointing to container element
+ - All view has own DOM element. It's pointing to container element. By default it's create own div tag.
 
 ### $el:
- - get all element of selector in array form
+ - get all element of provided selector in array form.
 
 
 ### template:
- - to insert the data dynamically we can use template formating 
-
+ - By template method we can insert the data dynamically in DOM. 
 
 ### render:
- -  render the HTML part
+ -  Render method we need to call to keep update the DOM.
 
 ### remove:
- - remove element from DOM
+ - By remove method we can delete view from DOM.
 
 ### events:
- - it's bind all DOM event in View like change, click etc.
+ - It's bind all DOM event in View like change, click etc. It's hold the key pair value where key has event name and selector where event will perform. And in value side it has method name.
 
 
 ### delegateEvents:
@@ -337,8 +333,18 @@ Finally the concept is that how to set the backbone js, underscore, jQuery in ro
 ### undelegateEvents:
  - It's unbind all event which is bind with View.
 
+
+# Sync #
+
+ - Backbone Sync is responsible for the keep syncing models with server. Sync uses the CRUD operation with AJAX request, but we can override with custom behavior.
+
+# custom behavior:
+ - we can implment setTimeout to make a queue system to send the multiple request
+ - we can send XML data instead of JSON
+ - We can implement websocket instead of AJAX to send the request
+
 # Router #
- - Router means a object that maps URL of App.
+ - Router is a object that maps URL of App.
 
 ### routes:
  - urls pattern of App
@@ -371,23 +377,27 @@ Finally the concept is that how to set the backbone js, underscore, jQuery in ro
 ### matchRoot:
  - This method is matching Root with path of browser url.
 
+### javascript:0:
+ - This is term use whenever we required to perform a onclick javascript but don't want to redirect for example suppose there is an anchor tag we want to perform onclick but don't want to naviagte to other url so we can use this term in href.
+
 
 ### decodeFragment:
+ - This method convert the %25 to %2525 to prevent the breaking url.
+
+### stop:
+ - stop method temporarily stop the history navigation.
+
+### PushState:
+ - PushState a feature in modern browser to provide the neat and clean url. It's use / instead of # to navigate the page.
+
+
+
+
+ <!-- discussion :
+ - void 0 : void is a javascript operator, which assign undefined in variable. We use it becuase in ES5, some older library uses undefined as a variable so it get conflict with variable so to prevent this. We use void 0 instead of undefined. -->
  - 
 
- discussion : 
- - PushState
- - void 0 : void is a javascript operator, which assign undefined in variable. We use it becuase in ES5 some older library uses undefined as a variable so it get conflict with variable so to prevent this. We use void 0 instead of undefined.
- - 
 
-
-
-
-# HELPER #
-
-# Extend method :- expand the object with subclass
-
-# 
 
 
 
